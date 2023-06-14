@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import api from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../../assets/Style'
+import styles from '../../assets/Style';
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
@@ -35,7 +35,7 @@ const Agents = () => {
   );
 
   return (
-    <ImageBackground source={require('../../assets/images/VALORANT_Logo_V_thumbnail.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../../assets/images/logo2.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <FlatList
           data={agents}

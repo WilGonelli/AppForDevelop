@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, View, TouchableOpacity, ImageBackground} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -11,10 +12,7 @@ export default function Home() {
     <ImageBackground source={require('../../assets/images/logo.png')} style={styles.backgroundImage}>
       <View style={[styles.container,  {justifyContent:'space-around'}]}>
         <TouchableOpacity style={[styles.button,{backgroundColor: 'rgba(0, 0, 0, 0.7)', height: 100, width: '80%'}]} onPress={ ()=> navigation.navigate('Agents') }>
-          <Text style={[styles.text,{fontSize:30}]}>Agentes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.button,{backgroundColor: 'rgba(0, 0, 0, 0.7)', height: 100, width: '80%'}]} onPress={ ()=> navigation.navigate('Maps') }>
-          <Text style={[styles.text,{fontSize:30}]}>Mapas</Text>
+          <Text style={[styles.text,{fontSize:30}]}>Agents</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
