@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import api from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
+import styles from '../../assets/Style'
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
@@ -11,7 +12,7 @@ const Agents = () => {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const response = await api.get('agents');
+        const response = await api.get('agents?language=pt-BR');
         const playableAgents = response.data.data.filter(agent => agent.isPlayableCharacter);
         setAgents(playableAgents);
       } catch (error) {
@@ -28,45 +29,23 @@ const Agents = () => {
 
   const renderAgent = ({ item }) => (
     <TouchableOpacity style={styles.button} onPress={() => handleAgentClick(item)}>
-      <Text style={styles.buttonText}>{item.displayName}</Text>
+      <Text style={styles.text}>{item.displayName}</Text>
+      <Image source={{ uri: item.displayIcon }} style={styles.icon}/>
     </TouchableOpacity>
   );
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={agents}
-        renderItem={renderAgent}
-        keyExtractor={(item) => item.uuid}
-        numColumns={2}
-      />
-    </View>
+    <ImageBackground source={require('../../assets/images/VALORANT_Logo_V_thumbnail.jpg')} style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <FlatList
+          data={agents}
+          renderItem={renderAgent}
+          keyExtractor={(item) => item.uuid}
+          numColumns={2}
+        />
+      </View>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'tomato',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    height: 50,
-    width: '40%',
-    margin: 5,
-    marginStart: 25,
-    padding: 5,
-    backgroundColor: 'teal',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
-  },
-});
 
 export default Agents;

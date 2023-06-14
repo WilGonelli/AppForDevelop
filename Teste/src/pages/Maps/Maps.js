@@ -11,14 +11,15 @@ class Maps extends Component{
     constructor(props){
         super(props);
         this.state = {
-            agents: [],
+            maps: [],
         };
 
     }
     async componentDidMount(){
-        const response = await api.get('agents/pt-br');
+        const response = await api.get('maps');
+        console.log(response.data.data)
         this.setState({
-            agents: response.data,
+            maps: response.data.data,
         });
     }
 
