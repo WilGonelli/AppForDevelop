@@ -9,6 +9,7 @@ import Home from './src/pages/Home';
 import Login from "./src/pages/LogIn";
 import Signin from "./src/pages/Signin";
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App(){
