@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-evenly',
         height: 50,
         width: '100%',
-        backgroundColor:'aquamarine'
+        backgroundColor:'rgba(0,0,0,0.5)'
     },
     btOptions:{
         backgroundColor:'cornflowerblue',
@@ -26,5 +26,25 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         color:'white'
     },
+    keyboard:{
+        flexDirection:'row',
+        height:50,
+        width:'100%',
+        justifyContent:'center', 
+        alignItems:'center'
+    },
+    keyboardBt:{
+        height:40,
+        width:30,
+        backgroundColor:'darkcyan',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:5,
+        margin:6
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'stretch',
+      },
 })
 export default styles;
